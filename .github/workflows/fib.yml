@@ -57,8 +57,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v3
         with:
-          cache-from: type=registry,src=docker.io/maciub/dockerrepo/zad1:buildx-cache
-          cache-to: type=registry,dest=docker.io/maciub/dockerrepo/zad1:buildx-cache
+          #cache-from: type=registry,src=docker.io/maciub/dockerrepo/zad1:buildx-cache
+          #cache-to: type=registry,dest=docker.io/maciub/dockerrepo/zad1:buildx-cache
           platforms: linux/arm64/v8,linux/amd64 
           context: .
           file: ./Dockerfile
