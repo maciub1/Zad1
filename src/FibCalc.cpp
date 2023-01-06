@@ -46,6 +46,6 @@ int main()
     }
     std::cout << "Wychodzenie z programu ...";
     credits();
-    //koniecc
+    //koniec
     return 0;
 }
