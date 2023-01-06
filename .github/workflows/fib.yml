@@ -45,7 +45,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/maciub/zad1
+            ghcr.io/maciub1/Zad1
           tags: |
             type=ref,event=branch
             type=ref,event=pr
