@@ -45,7 +45,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/maciub/zad1
+            ghcr.io/maciub/dockerrepo/zad1
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -57,11 +57,10 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v3
         with:
-          #cache-from: type=registry,src=docker.io/maciub/dockerrepo/zad1:buildx-cache
-          #cache-to: type=registry,dest=docker.io/maciub/dockerrepo/zad1:buildx-cache
+          cache-from: type=registry,src=docker.io/maciub/dockerrepo/zad1:buildx-cache
+          cache-to: type=registry,dest=docker.io/maciub/dockerrepo/zad1:buildx-cache
           platforms: linux/arm64/v8,linux/amd64 
           context: .
-          file: ./Dockerfile
           push: true
           tags: ${{steps.meta.outputs.tags}}
           labels: ${{steps.meta.outputs.labels}}
