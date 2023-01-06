@@ -45,7 +45,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/maciub/dockerrepo/zad1
+            ghcr.io/maciub/zad1
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -60,16 +60,16 @@ jobs:
           cache-from: type=registry,src=docker.io/maciub/dockerrepo/zad1:buildx-cache
           cache-to: type=registry,dest=docker.io/maciub/dockerrepo/zad1:buildx-cache
           platforms: linux/arm64/v8,linux/amd64 
-          context: .
+          context: ./
           push: true
           tags: ${{steps.meta.outputs.tags}}
           labels: ${{steps.meta.outputs.labels}}
 
 
-      #- name: Build and push to ghcr.io
-      #  uses: macbre/push-to-ghcr@master
-      #  with:
-      #    image_name: ${{ github.repository }}
-      #    github_token: ${{ secrets.GITHUB_TOKEN }} 
-      #    image_tag: ${{steps.meta.outputs.tags}}
+      - name: Build and push to ghcr.io
+        uses: macbre/push-to-ghcr@master
+        with:
+          image_name: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          image_tag: ${{steps.meta.outputs.tags}}
       
