@@ -64,12 +64,4 @@ jobs:
           push: true
           tags: ${{steps.meta.outputs.tags}}
           labels: ${{steps.meta.outputs.labels}}
-
-
-      - name: Build and push to ghcr.io
-        uses: macbre/push-to-ghcr@master
-        with:
-          image_name: ${{ github.repository }}
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
-          image_tag: ${{steps.meta.outputs.tags}}
       
